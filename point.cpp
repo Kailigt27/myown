@@ -4,9 +4,9 @@ using namespace std;
 class Point
 {
 public:
-    int x, y, z;
+    double x, y, z;
     string m_name;
-    Point(string name, int a, int b, int c)
+    Point(string name, double a, double b, double c)
     {
         m_name = name;
         x = a;
@@ -15,80 +15,79 @@ public:
     }
     void print()
     {
-        cout << x << " " << y << " " << z << " ";
+        cout << x << " " << y << " " << z << " "<<endl;
     }
 };
 class Pointlist
 {
 public:
     vector<Point>m_point;
-    void Addpoint(string nm, int a, int b, int c)
+    void Addpoint(string nm, double a, double b, double c)
     {
         Point ptr(nm, a, b, c);
         m_point.push_back(ptr);
     }
-    void Deletepoint(int a, int b, int c)
+    void Deletepoint(double a, double b, double c)
     {
-        int index = 0;
-        for (int i = 0; i < m_point.size(); i++)
+        for (auto it=m_point.begin();it!=m_point.end();++it)
         {
-            if (m_point[i].x == a && m_point[i].y == b && m_point[i].z == c)
-            {
-                index = i;
-            }
+           if (it->x==a&&it->y==b&&it->z==c)
+           {
+            m_point.erase(it);
+            return;
+           }
         }
-        m_point.erase(m_point.begin() + index);
+        cout<<"point "<<a<<" "<<b<<" "<<c<<" "<<"not found"<<endl;
     }
     void Deletepoint(string mname)
     {
-        int index = 0;
-        for (int j = 0; j < m_point.size();j++)
+        for (auto it=m_point.begin();it!=m_point.end();++it)
         {
-            if (m_point[j].m_name == mname)
+            if (it->m_name==mname)
             {
-                index = j;
-                break;
+                m_point.erase(it);
+                return;
             }
         }
-        m_point.erase(m_point.begin() + index);
+       cout<<"point  "<<mname<<" not found";
     }
-    void Updatepoint(string sy, int x1, int y1, int z1)
+    void Updatepoint(string sy, double x1, double y1, double z1)
     {
-        int index = 0;
-        for (int u = 0; u < m_point.size(); u++)
+        for(auto& point:m_point)
         {
-            if (sy == m_point[u].m_name)
+            if (sy==point.m_name)
             {
-                index = u;
-                break;
+                point.x=x1;
+                point.y=y1;
+                point.z=z1;
+                return;
             }
         }
-        m_point[index].x = x1;
-        m_point[index].y = y1;
-        m_point[index].z = z1;
+        cout<<"point sy not found"<<endl;
     }
     void Findpoint(string mname)
     {
-        int index = 0;
-        for (int z = 0; z < m_point.size(); z++)
+        for (auto it=m_point.begin();it!=m_point.end();++it)
         {
-            if (m_point[z].m_name == mname)
+           if(it->m_name==mname)
+           {
+            it->print();
+            return;
+           }
+        }
+        cout<<"not found";
+    }
+    void Findpoint(double x1, double x2, double x3)
+    {
+        for(auto it=m_point.begin();it!=m_point.end();++it)
+        {
+            if(it->x==x1&&it->y==x2&&it->z==x3)
             {
-                index = z;
-                break;
+                cout<<it->m_name;
+                return;
             }
         }
-        m_point[index].print();
-    }
-    void Findpoint(int x1, int x2, int x3)
-    {
-        int index = 0;
-        for (int b = 0; b < m_point.size(); b++)
-        {
-            index = b;
-            break;
-        }
-        cout << m_point[index].m_name;
+        cout<<"not found";
     }
 };
 int main()
