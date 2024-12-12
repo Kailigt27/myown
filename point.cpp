@@ -93,9 +93,9 @@ public:
 int main()
 {
     Pointlist a;
-    a.Addpoint("雨中曲",16,502,2);
+    a.Addpoint("yzq",16,502,2);
     a.Addpoint("second",2402,2,1);
-    a.Findpoint("雨中曲");
+    a.Findpoint("yzq");
     a.Findpoint(2402,2,1);
     a.Findpoint(16,502,2);
 }
