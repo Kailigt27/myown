@@ -83,7 +83,7 @@ public:
         {
             if(it->x==x1&&it->y==x2&&it->z==x3)
             {
-                cout<<it->m_name;
+                cout<<it->m_name<<endl;
                 return;
             }
         }
