@@ -15,7 +15,7 @@ public:
     }
     void print()
     {
-        cout << x << " " << y << " " << z << " "<<endl;
+        cout <<"Point"<<m_name<<x << " " << y << " " << z << " "<<endl;
     }
 };
 class Pointlist
