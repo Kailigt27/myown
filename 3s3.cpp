@@ -6,7 +6,7 @@
 using namespace std;
 double objective_function(double x)
 {
-	return x * x + 1;
+	return x * x + 3;
 }
 class Point
 {
