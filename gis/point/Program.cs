@@ -40,7 +40,8 @@ class Program
             {
                 points[i] = new Point();
                 points[i].x = xMin + (xMax - xMin) * random.NextDouble();
-                points[i].v=0.1*x
+                points[i].v=0.1*(xMmax-xMin)*(random.NextDouble-0.5);
+                points[i].pBest=point
 
             }
         }
